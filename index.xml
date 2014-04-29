@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page>
+	<title>My index page</title>
+    <plugin>example.php</plugin>
+	<content>
+		<p>This is the index page, here is a link to <a href="{{root}}another-page">another page</a></p>
+
+        <p>{{Example.exampleFunction}}</p>
+        <p>{{Example.exampleFunction2(say=Hello\, World)}}</p>
+	</content>
+</page>

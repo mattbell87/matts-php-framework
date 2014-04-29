@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<page>
+	<title>Another page</title>
+	<content>
+		<p>This is another page, here is a link to the <a href="{{root}}">index page</a></p>
+	</content>
+</page>

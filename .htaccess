@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^(.*)\.xml$		index.php?path=$1.xml		[QSA]
+RewriteRule ^(.*)\.page$	index.php?path=$1.xml		[QSA]
+RewriteRule ^([^.]*)$		index.php?path=$1.xml		[QSA]
