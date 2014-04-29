@@ -32,7 +32,7 @@ Contains the project class and plugins
 /common/objects/example.php   <-- An example plugin you can copy for your own needs
 ```
 
-## /common/error
+### /common/error
 Contains the error pages
 ```
 /common/error/error404.xml    <-- Example error 404 page
