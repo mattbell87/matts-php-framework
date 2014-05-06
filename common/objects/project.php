@@ -263,6 +263,12 @@ class Project
 			}
 		}
 	}
+	
+	//Access plugins from each other
+	function plugin($name)
+	{
+		return $this->plugins[$name];
+	}
 }
 
 /* 
