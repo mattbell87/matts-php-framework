@@ -25,7 +25,8 @@ class Project
 		$array = explode("/", $_SERVER['SCRIPT_NAME']);
 		array_pop($array);
 		$this->rootPath = implode("/", $array) . "/";
-		$this->plugins["Page"] = $this->page = new Page($this);
+		$this->plugins["Page"] = $this->page = new Page();
+		$this->plugins["Page"]->connect($this);
 		$this->page->init();
 		
 		if (isset ($path))
@@ -53,7 +54,6 @@ class Project
 		}
 	}
 	
-		
 	function setDatabase($db)
 	{
 		$this->db = $db;	
@@ -168,7 +168,6 @@ class Project
 				$command = html_entity_decode($command);
                 $commandArray = explode(".", $command, 2);
                 $cmd = preg_quote($command);
-				//$cmd = str_replace('/', '\\/', $cmd);
 				$str = '';
                 
 				if (count($commandArray) > 1)
@@ -177,15 +176,10 @@ class Project
 					$method = $commandArray[1];
 					$params = array();
 
-                    
-					
-					//if (count($commandArray) > 2)
                     if (strpos($method, "(") !== FALSE)
 					{
-						
                         $params = $getParams($method);
                         $method = explode("(", $method)[0];
-
 					}
 					
 					if (isset($this->plugins[$plugin]))
@@ -232,6 +226,7 @@ class Project
 				}
 			}
 		}
+		
         //Remove server side only content
         $content = preg_replace('/xmleditable="[^"]*"/','',$content);
 		return $content;
@@ -258,7 +253,8 @@ class Project
 				!isset($this->plugins[$class])
 			)
 			{
-				$this->plugins[$class] = new $class($this);
+				$this->plugins[$class] = new $class();
+				$this->plugins[$class]->connect($this);
 				$this->plugins[$class]->init();
 			}
 		}
@@ -280,7 +276,7 @@ abstract class Plugin
 {
 	protected $project;
 	protected $db;
-	function __construct($project)
+	function connect($project)
 	{
 		$this->project = $project;
 		$this->db = $project->getDatabase();
