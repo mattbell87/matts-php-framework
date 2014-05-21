@@ -4,6 +4,9 @@
 	
 	This is the main object that translates the page
 	from XML to HTML and applies the skin and variables.
+	
+	Developed by Matt Bell
+	https://github.com/nrg753/matts-php-framework
 */
 class Project
 {
@@ -167,7 +170,7 @@ class Project
 			{
 				$command = html_entity_decode($command);
                 $commandArray = explode(".", $command, 2);
-                $cmd = preg_quote($command);
+                $cmd = str_replace('/', '\\/', preg_quote($command));
 				$str = '';
                 
 				if (count($commandArray) > 1)
@@ -222,7 +225,7 @@ class Project
 					if ($command == "root")
 						$str = $this->rootPath;
 					$replace = str_replace('$', '\$', $str);
-					$content = preg_replace("/\{\{$cmd\}\}/",$replace,$content);
+					$content = preg_replace('/\{\{'.$cmd.'\}\}/',$replace,$content);
 				}
 			}
 		}
@@ -416,7 +419,7 @@ class Page extends Plugin
 		if (isset($cmds['notags']))
 			$output = strip_tags($output);
 		
-		return $output;
+		return $this->project->translate($output);
 	}
 	
 	function metadata()
