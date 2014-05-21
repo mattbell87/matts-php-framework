@@ -1,4 +1,9 @@
+# Rewrite rules (Apache only)
+
 RewriteEngine On
+# .xml to be processed by index.php
 RewriteRule ^(.*)\.xml$		index.php?path=$1.xml		[QSA]
+# .page path as an xml file
 RewriteRule ^(.*)\.page$	index.php?path=$1.xml		[QSA]
+# extensionless path
 RewriteRule ^([^.]*)$		index.php?path=$1.xml		[QSA]

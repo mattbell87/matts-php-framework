@@ -1,7 +1,13 @@
 <?xml version="1.0"?>
+<!--
+	Example Page
+	=============
+	This example show's how to link between the two pages
+-->
 <page>
 	<title>Another page</title>
 	<content>
+		<!-- the link below is pointing to the root of the website -->
 		<p>This is another page, here is a link to the <a href="{{root}}">index page</a></p>
 	</content>
 </page>

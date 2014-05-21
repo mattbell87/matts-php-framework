@@ -3,10 +3,10 @@
 		PHP Project Template
 		
 		This file brings everything together.
-		It handles skins and plugins.
+		It handles the path, skins and plugins.
 	*/
 
-	//Enable errors
+	//Enable errors (for debugging purposes)
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
 	
@@ -31,8 +31,8 @@
 	$skin = './common/skins/desktop.htm';
 	$project->setSkin($skin);
 	
-	//Add Plugins from /common/objects
-	//eg. $page->addPlugin('myplugin');
+	//Add GLOBAL Plugins from /common/objects
+		//eg. $page->addPlugin('myplugin.php');
 	
 	//Output the page
 	$project->process();

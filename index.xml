@@ -1,11 +1,16 @@
 <?xml version="1.0"?>
+<!--
+	My Index Page
+	=============
+	Contains your home page content
+-->
 <page>
 	<title>My index page</title>
-    <plugin>example.php</plugin>
+	<plugin>example.php</plugin> <!-- uses the example plugin -->
 	<content>
+		<!-- the link below is pointing to the another-page.xml (relative to the root of the website) -->
 		<p>This is the index page, here is a link to <a href="{{root}}another-page">another page</a></p>
-
-        <p>{{Example.exampleFunction}}</p>
-        <p>{{Example.exampleFunction2(say=Hello\, World)}}</p>
+		<p>{{Example.exampleFunction}}</p>
+		<p>{{Example.exampleFunction2(say=Hello\, World)}}</p>
 	</content>
 </page>
