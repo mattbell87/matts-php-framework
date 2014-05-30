@@ -95,7 +95,7 @@ class Example extends Plugin
 ?>
 ```
 
-If you wanted to output the sayHi() function to your homepage, you'd code it like the folliwing:
+If you wanted to output the sayHi() function to your homepage, you'd code it like the following:
 
 **index.xml:**
 ```xml
