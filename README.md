@@ -76,7 +76,7 @@ Plugin functions also use the {{function}} syntax. In order to call a plugin fun
 
 When you build a basic plugin it might look something like this:
 
-**/common/objects/example.php**
+**/common/objects/example.php:**
 ```php
 <?php
 
@@ -110,7 +110,7 @@ If you wanted to output the sayHi() function to your homepage, you'd code it lik
 </page>
 ```
 
-Take note of the <plugin> entry that contains the filename of the plugin.
+Take note of the &lt;plugin&gt; entry that contains the filename of the plugin.
 
 ### Calling plugin functions with paramaters
 
@@ -132,7 +132,7 @@ If you want to use parameters in an XML file and map them to a class, use it lik
 
 Below you can see that the function is being fed an associative array (or map) of paramaters.
 
-**/common/objects/example.php**
+**/common/objects/example.php:**
 ```php
 <?php
 
@@ -153,6 +153,7 @@ class Example extends Plugin
         return "Example Function 2 says: ".$params['text'];
     }
 }
+
 ?>
 ```
 
