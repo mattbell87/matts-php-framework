@@ -164,7 +164,7 @@ If you need to implement optional paramaters you could use this:
 
 function exampleFunction($params)
 {
-    if (isset($params['myoptionalparam'])
+    if ( isset($params['myoptionalparam']) )
     {
         //do stuff
     }
