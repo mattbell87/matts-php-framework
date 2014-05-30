@@ -59,7 +59,7 @@ This is an example of what your index page could look like
 
 ### Calling built in functions
 
-The must useful built int XML function is {{root}}. This is useful if you'd like to keep all of your paths root relative, but still have the ability to move your entire website into a subfolder.
+The must useful built in function is {{root}}. This is useful if you'd like to keep all of your paths root relative, but still have the ability to move your entire website into a subfolder.
 
 For example if your entire website was located at http://localhost/projects/work/testwebsite/
 ```
@@ -92,6 +92,7 @@ class Example extends Plugin
         return "Hello World";
     }
 }
+
 ?>
 ```
 
