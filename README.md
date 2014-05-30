@@ -40,9 +40,9 @@ Contains the error pages
 
 ## Using XML Files
 
-Matt's PHP Framework uses XML files to contain your page content.
+Matt's PHP Framework uses XML files to contain your page content. The framework takes the skin file and combines it with an XML file to produce the entire page.
 
-### Example XML File
+### Your first XML file
 
 This is an example of what your index page could look like
 
@@ -162,7 +162,7 @@ If you need to implement optional paramaters you could use this:
 
 function exampleFunction($params)
 {
-    if (isset($params[‘myoptionalparam’])
+    if (isset($params['myoptionalparam'])
     {
         //do stuff
     }
