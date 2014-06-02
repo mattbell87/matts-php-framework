@@ -5,6 +5,8 @@
 	This is the main object that translates the page
 	from XML to HTML and applies the skin and variables.
 	
+	Create a project by calling Project::Instance();
+	
 	Developed by Matt Bell
 	https://github.com/nrg753/matts-php-framework
 */
@@ -23,7 +25,7 @@ class Project
 	
 	public $rootPath;
 	
-	function __construct($path = null, $skin = null)
+	private function __construct($path = null, $skin = null)
 	{
 		$array = explode("/", $_SERVER['SCRIPT_NAME']);
 		array_pop($array);
@@ -40,6 +42,15 @@ class Project
 			
 		set_error_handler(array($this, "error"));
 	}
+
+	//Instance
+	public static function Instance()
+    {
+        static $proj = null;
+        if ($proj === null)
+            $proj = new Project();
+        return $proj;
+    }	
 	
 	function setPath($path)
 	{

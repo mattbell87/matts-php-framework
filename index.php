@@ -14,7 +14,7 @@
 	include('./common/objects/project.php');
 	
 	//Create the project object
-	$project = new Project();
+	$project = Project::Instance();
 
 	// Handle the path to the page
 	$path = 'index.xml';
