@@ -344,6 +344,16 @@ class Page extends Plugin
 		}
 	}
 	
+	function getInnerXML($tagname)
+	{
+		foreach ($this->xml->children() as $child) 
+		{
+			$name = $child->getName();
+			if ($name == $tagname)
+				return $this->innerXML($child);
+		}
+	}
+	
 	function load($path)
 	{
 		$this->path = $path;
