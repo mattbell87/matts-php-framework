@@ -85,9 +85,6 @@ class Project
 	
 	function process()
 	{
-		//Translate content
-		$this->bindPlugins();		
-		
 		//Call a translate after binding plugins
 		$this->page->setContent($this->page->content());
 		
@@ -193,7 +190,8 @@ class Project
                     if (strpos($method, "(") !== FALSE)
 					{
                         $params = $getParams($method);
-                        $method = explode("(", $method)[0];
+                        $arrmethod = explode("(", $method);
+						$method = $arrmethod[0];
 					}
 					
 					if (isset($this->plugins[$plugin]))
@@ -254,6 +252,7 @@ class Project
 	function addPlugin($name)
 	{
 		require_once $name;	
+		$this->bindPlugins();
 	}
 	
 	function bindPlugins()
