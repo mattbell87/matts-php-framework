@@ -25,10 +25,15 @@ class Project
 	
 	public $rootPath;
 	
+	public $cssPath;
+	public $jsPath;
+	
 	private function __construct($path = null, $skin = null)
 	{
 		$array = explode("/", $_SERVER['SCRIPT_NAME']);
 		array_pop($array);
+		$this->cssPath = 'common/styles/';
+		$this->jsPath = 'common/scripts/';
 		$this->rootPath = implode("/", $array) . "/";
 		$this->plugins["Page"] = $this->page = new Page();
 		$this->plugins["Page"]->connect($this);
@@ -382,7 +387,7 @@ class Page extends Plugin
 			{
 				$href = $this->innerText($child);
 				if (strpos($href,"://") === false)
-					$href = $this->project->rootPath . "common/scripts/" . $href;
+					$href = $this->project->rootPath . $this->project->jsPath . $href;
 				$script = "<script src=\"$href\" type=\"text/javascript\"></script>";
 				array_push($this->scriptEls, $script);
 			}
@@ -390,7 +395,7 @@ class Page extends Plugin
 			{
 				$href = $this->innerText($child);
 				if (strpos($href,"://") === false)
-					$href = $this->project->rootPath . "common/styles/" . $href;
+					$href = $this->project->rootPath . $this->project->cssPath . $href;
 				$media = $child->attributes()->media;	
 				$style = '<link rel="stylesheet" href="'.$href .'" media="'.$media.'" />';
 				array_push($this->styleEls, $style);
