@@ -447,6 +447,11 @@ class Page extends Plugin
 		return $this->project->translate($output);
 	}
 	
+	function setTitle($newTitle)
+	{
+		$this->xml->title = $newTitle;
+	}
+	
 	function metadata()
 	{
 		$metadata = "";
