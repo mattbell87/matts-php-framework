@@ -281,7 +281,10 @@ class Project
 	//Access plugins from each other
 	function plugin($name)
 	{
-		return $this->plugins[$name];
+        if (isset($this->plugins[$name]))
+            return $this->plugins[$name];
+        else
+            return null;
 	}
 }
 
