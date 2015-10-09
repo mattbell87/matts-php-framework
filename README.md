@@ -88,14 +88,14 @@ When you build a basic plugin it might look something like this:
 ```php
 <?php
 
-class Example extends Plugin
+class Example extends Plugin  //Note the class name here "Example"
 {
     function init()
     {
         //Initialisation code goes here
     }
 
-    function sayHi()
+    function sayHi()  //Note the function name here "sayHi"
     {
         return "Hello World";
     }
@@ -104,14 +104,14 @@ class Example extends Plugin
 ?>
 ```
 
-If you wanted to output the sayHi() function to your homepage, you'd code it like the following:
+Based on the above if you wanted to output the sayHi() function to your homepage, you'd code it like the following:
 
 **index.xml:**
 ```xml
 <?xml version="1.0"?>
 <page>
        <title>My home page</title>
-       <plugin>example.php</plugin>
+       <plugin>example.php</plugin>  <!-- Note the plugin is called here -->
        <content>
               <p>Welcome to my Home Page.<p>
               <p>My plugin says: {{Example.sayHi}}</p>
