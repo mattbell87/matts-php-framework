@@ -1,9 +1,17 @@
 Matt's PHP Framework
 =====================
 
-*I'm in the process of improving the documentation and code on this framework*
-
 Matt's PHP Framework is an object oriented plugin system and templating engine built on PHP. It allows your website to be modular, and easy to skin and improve.
+
+## Requirements
+* Apache
+* PHP 5.x
+
+## Installation
+1. Download the ZIP from GitHub
+       https://github.com/mattbell87/matts-php-framework/archive/master.zip
+2. Extract this to your new website (or a folder under the Apache document root)
+3. Build your website!
 
 ## File structure
 
