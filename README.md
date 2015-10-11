@@ -1,7 +1,7 @@
 Matt's PHP Framework
 =====================
 
-Matt's PHP Framework is an object oriented plugin system and templating engine built on PHP. It allows your website to be modular, and easy to skin and improve.
+Matt's PHP Framework is an object oriented plugin system and templating engine built on PHP. The purpose of this framework is give you a decent PHP boilerplate to build on, make your more website modular and to enable you to skin your website easily without affecting your content.
 
 ## Requirements
 * Apache
@@ -30,7 +30,7 @@ Contains all the central files for your website
 ### /common/skins
 Contains the skins for your website
 ```
-/common/skins/desktop.htm     <-- Example skin, this contains the look and feel of your website
+/common/skins/responsive.htm     <-- Example skin, this contains the look and feel of your website
 ```
 
 ### /common/objects
@@ -70,11 +70,11 @@ This is an example of what your index page could look like
 The must useful built in function is {{root}}. This is useful if you'd like to keep all of your paths root relative, but still have the ability to move your entire website into a subfolder.
 
 For example if your entire website was located at http://localhost/projects/work/testwebsite/
-```
+```xml
 <a href="{{root}}">Home</a>
 ```
 would output:
-```
+```xml
 <a href="/projects/work/testwebsite/">Home</a>
 ```
 

@@ -28,7 +28,7 @@
 	$project->setPath($path);
 	
 	//Set the skin
-	$skin = './common/skins/desktop.htm';
+	$skin = './common/skins/responsive.htm';
 	$project->setSkin($skin);
 	
 	//Add GLOBAL Plugins from /common/objects
