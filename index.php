@@ -10,8 +10,8 @@
 	error_reporting(E_ALL);
 	ini_set("display_errors", 1);
 
-	//Include the project class
-	include('app/objects/project.php');
+	//Include the framework
+	include('app/framework.php');
 
 	//Create the project object
 	$project = Project::Instance();

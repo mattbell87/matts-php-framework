@@ -25,18 +25,18 @@ Top level folder
 
 ### /app
 Contains the framework
+/app/framework.php   <-- Contains the templating engine and plugin system
 
 ### /app/skins
 Contains the skins for your website
 ```
-/app/skins/responsive.htm     <-- Example skin, this contains the look and feel of your website
+/app/skins/responsive.htm    <-- An example skin, this contains the visual layout for your website
 ```
 
-### /app/objects
-Contains the project class and plugins
+### /app/plugins
+Contains the plugins
 ```
-/app/objects/project.php   <-- Contains the templating engine and plugin system
-/app/objects/example.php   <-- An example plugin you can copy for your own needs
+/app/plugins/example.php   <-- An example plugin you can copy and modify for your own needs
 ```
 
 ### /app/error
@@ -83,7 +83,7 @@ Plugin functions also use the {{function}} syntax. In order to call a plugin fun
 
 When you build a basic plugin it might look something like this:
 
-**/app/objects/example.php:**
+**/app/plugins/example.php:**
 ```php
 <?php
 
@@ -140,7 +140,7 @@ If you want to use parameters in an XML file and map them to a class, use it lik
 
 Below you can see that the function is being fed an associative array (or map) of paramaters.
 
-**/app/objects/example.php:**
+**/app/plugins/example.php:**
 ```php
 <?php
 

@@ -221,7 +221,7 @@ class Project
 					{
 						ob_start();
 
-						$path = dirname($this->path) . "/";
+						$path = dirname($this->path);
 						$params = $getParams($method);
 						if (isset($params["file"]))
 						{
@@ -251,7 +251,7 @@ class Project
 
 	function addPlugin($name)
 	{
-		require_once $name;
+		require_once "plugins/" . $name;
 		$this->bindPlugins();
 	}
 
