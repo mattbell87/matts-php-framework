@@ -24,26 +24,26 @@ Top level folder
 /another-page.xml <-- Example of another page
 ```
 
-### /common
+### /app
 Contains all the central files for your website
 
-### /common/skins
+### /app/skins
 Contains the skins for your website
 ```
-/common/skins/responsive.htm     <-- Example skin, this contains the look and feel of your website
+/app/skins/responsive.htm     <-- Example skin, this contains the look and feel of your website
 ```
 
-### /common/objects
+### /app/objects
 Contains the project class and plugins
 ```
-/common/objects/project.php   <-- Contains the templating engine and plugin system
-/common/objects/example.php   <-- An example plugin you can copy for your own needs
+/app/objects/project.php   <-- Contains the templating engine and plugin system
+/app/objects/example.php   <-- An example plugin you can copy for your own needs
 ```
 
-### /common/error
+### /app/error
 Contains the error pages
 ```
-/common/error/error404.xml    <-- Example error 404 page
+/app/error/error404.xml    <-- Example error 404 page
 ```
 
 ## Using XML Files
@@ -84,7 +84,7 @@ Plugin functions also use the {{function}} syntax. In order to call a plugin fun
 
 When you build a basic plugin it might look something like this:
 
-**/common/objects/example.php:**
+**/app/objects/example.php:**
 ```php
 <?php
 
@@ -141,7 +141,7 @@ If you want to use parameters in an XML file and map them to a class, use it lik
 
 Below you can see that the function is being fed an associative array (or map) of paramaters.
 
-**/common/objects/example.php:**
+**/app/objects/example.php:**
 ```php
 <?php
 
@@ -179,5 +179,3 @@ function exampleFunction($params)
 }
 
 ```
-
-
