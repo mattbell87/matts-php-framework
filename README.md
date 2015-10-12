@@ -19,13 +19,13 @@ Matt's PHP Framework is an object oriented plugin system and templating engine b
 Top level folder
 ```
 /.htaccess        <-- Defines friendly URLs (rewrites)
-/index.php        <-- Define your skin and plugins here
+/index.php        <-- Define your skin and global plugins here
 /index.xml        <-- Your index page
 /another-page.xml <-- Example of another page
 ```
 
 ### /app
-Contains all the central files for your website
+Contains the framework
 
 ### /app/skins
 Contains the skins for your website
