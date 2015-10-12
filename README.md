@@ -5,13 +5,12 @@ Matt's PHP Framework is an object oriented plugin system and templating engine b
 
 ## Requirements
 * Apache
+* Apache Rewrite Engine enabled
 * PHP 5.x
 
 ## Installation
-1. Download the ZIP from GitHub
-       https://github.com/mattbell87/matts-php-framework/archive/master.zip
-2. Extract this to your new website (or a folder under the Apache document root)
-3. Build your website!
+1. Download the [latest copy of the framework](https://github.com/mattbell87/matts-php-framework/archive/master.zip)
+2. Extract everything to your website (or a folder under the Apache document root)
 
 ## File structure
 
