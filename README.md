@@ -1,7 +1,7 @@
 Matt's PHP Framework
 =====================
 
-Matt's PHP Framework is an object oriented plugin system and templating engine built on PHP. The purpose of this framework is give you a decent PHP boilerplate to build on, make your more website modular and to enable you to skin your website easily without affecting your content.
+Matt's PHP Framework is an object oriented plugin system and template engine built on PHP. The purpose of this framework is give you a decent PHP boilerplate to build on, make your more website modular and to enable you to skin your website easily without affecting your content.
 
 ## Requirements
 * Apache
@@ -24,17 +24,17 @@ Top level folder
 
 ### /app
 Contains the framework
-       
-       /app/framework.php   <-- Contains the templating engine and plugin system
+
+       /app/framework.php   <-- Contains the template engine and plugin system
 
 ### /app/skins
 Contains the skins for your website
-       
+
        /app/skins/responsive.htm    <-- An example skin, this contains the visual layout for your website
 
 ### /app/plugins
 Contains the plugins
-       
+
        /app/plugins/example.php   <-- An example plugin you can copy and modify for your own needs
 
 ### /app/error

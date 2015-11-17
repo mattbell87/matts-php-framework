@@ -17,6 +17,7 @@ class Project
 	public $pageloaded = false;
 
 	private $skinFile;
+	private $error404;
 	private $plugins = array();
 	private $translations = array();
 	private $config = array();
@@ -60,17 +61,14 @@ class Project
 	function setPath($path)
 	{
 		$this->path = $path;
-		if (file_exists($path))
+		if (is_file($path))
 		{
 			$this->page->load($path);
 			$this->pageloaded = true;
 			return true;
 		}
-		else
-		{
-			$this->pageloaded = false;
-			return false;
-		}
+		$this->pageloaded = false;
+		return false;
 	}
 
 	function setDatabase($db)
@@ -88,6 +86,11 @@ class Project
 		$this->skinFile = $skin;
 	}
 
+	function set404NotFound($path)
+	{
+		$this->error404 = $path;
+	}
+
 	function process()
 	{
 		//Call a translate after binding plugins
@@ -99,7 +102,10 @@ class Project
 			{
 				//Output 404 error
 				header('HTTP/1.0 404 Not Found');
-				$this->setPath('./app/error/error404.xml');
+				if (isset($this->error404))
+					$this->setPath($this->error404);
+				else
+					$this->setPath('./app/error/error404.xml');
 			}
 			$content = file_get_contents($this->skinFile);
 			$content = $this->translate($content);
@@ -365,13 +371,7 @@ class Page extends Plugin
 		$this->content = $this->innerXML($this->xml->content);
 
 		//Expand any HTML tags that can't be self-closed
-		$this->expandTags("textarea");
-		$this->expandTags("link");
-		$this->expandTags("td");
-		$this->expandTags("div");
-		$this->expandTags("span");
-		$this->expandTags("p");
-		$this->expandTags("a");
+		$this->content = $this->expandToHTML($this->content);
 
 		//Handle XML includes
 		foreach ($this->xml->children() as $child)
@@ -468,13 +468,37 @@ class Page extends Plugin
 	}
 
 	//Convert a tag from self closed to no contents (for better HTML compatibility)
-	private function expandTags($tag)
+	public function expandToHTML($code)
+	{
+		//Define HTML tags that can't be self closed
+		$tags = array
+		(
+			'textarea',
+			'link',
+			'td',
+			'div',
+			'span',
+			'p',
+			'a'
+		);
+
+		//Expand each tag
+		foreach ($tags as $tag)
+		{
+			$code = $this->expandTag($tag, $code);
+		}
+
+		return $code;
+	}
+
+	private function expandTag($tag, $content)
 	{
 		if (strpos($this->content, "<$tag") !== false)
 		{
 			$regtag = preg_quote($tag);
-			$this->content = preg_replace("/<$regtag([^>]*)(?=\/>)\/>/", "<$regtag$1></$regtag>", $this->content);
+			$content = preg_replace("/<$regtag([^>]*)(?=\/>)\/>/", "<$regtag$1></$regtag>", $content);
 		}
+		return $content;
 	}
 }
 

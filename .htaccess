@@ -6,4 +6,4 @@ RewriteRule ^(.*)\.xml$		index.php?path=$1.xml		[QSA]
 # .page path as an xml file
 RewriteRule ^(.*)\.page$	index.php?path=$1.xml		[QSA]
 # extensionless path
-RewriteRule ^([^.]*)$		index.php?path=$1.xml		[QSA]
+RewriteRule ^([^.]*)$		index.php?path=$1			[QSA]

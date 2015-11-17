@@ -16,20 +16,17 @@
 	//Create the project object
 	$project = Project::Instance();
 
-	// Handle the path to the page
-	$path = 'index.xml';
-	if (isset($_GET['path']) &&
-		$_GET['path'] != "" &&
-		$_GET['path'] != ".xml")
-	{
-		$path = $_GET['path'];
-	}
-
-	$project->setPath($path);
+	//Set the path and index file
+	$path = isset($_GET['path']) ? $_GET['path'] : '';
+	$project->setPath($path) ||
+	$project->setPath($path.".xml") ||
+	$project->setPath($path."index.xml");
 
 	//Set the skin
-	$skin = 'app/skins/responsive.htm';
-	$project->setSkin($skin);
+	$project->setSkin('app/skins/responsive.htm');
+
+	//Set the 404 page
+	$project->set404NotFound('app/error/error404.xml');
 
 	//You can set prefixes for CSS and JS paths (when using css and js tags in the XML)
 		//eg. $project->cssPath = 'css/';
