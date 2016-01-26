@@ -1,10 +1,11 @@
 <?php
-    
+
 class Example extends Plugin
 {
-    function init()
+    function pluginLoaded()
     {
-        //Initialisation code goes here
+        // (optional) Code that runs when the project loads the plugin
+        // $this->project is available from here.
     }
 
     function exampleFunction()

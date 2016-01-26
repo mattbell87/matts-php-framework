@@ -5,10 +5,10 @@
 	This is the main object that translates the page
 	from XML to HTML and applies the skin and variables.
 
-	Create a project by calling Project::Instance();
+	Get a reference to the project by calling Project::Instance();
 
 	Developed by Matt Bell
-	https://github.com/nrg753/matts-php-framework
+	https://github.com/mattbell87/matts-php-framework
 */
 class Project
 {
@@ -37,8 +37,7 @@ class Project
 		$this->jsPath = '';
 		$this->rootPath = implode("/", $array) . "/";
 		$this->plugins["Page"] = $this->page = new Page();
-		$this->plugins["Page"]->connect($this);
-		$this->page->init();
+		$this->page->project = $this;
 
 		if (isset ($path))
 			$this->setPath($path);
@@ -273,8 +272,8 @@ class Project
 			)
 			{
 				$this->plugins[$class] = new $class();
-				$this->plugins[$class]->connect($this);
-				$this->plugins[$class]->init();
+                $this->plugins[$class]->project = $this;
+				$this->plugins[$class]->pluginLoaded();
 			}
 		}
 	}
@@ -296,15 +295,7 @@ class Project
 */
 abstract class Plugin
 {
-	protected $project;
-	protected $db;
-	function connect($project)
-	{
-		$this->project = $project;
-		$this->db = $project->getDatabase();
-	}
-
-	abstract public function init();
+	public function pluginLoaded(){}
 }
 
 
@@ -322,7 +313,7 @@ class Page extends Plugin
 	private $scriptEls = array();
 	private $styleEls = array();
 
-	function init()
+	function __construct()
 	{
 		$this->xml = new SimpleXMLElement("<page><title></title><content></content></page>");
 	}
