@@ -86,9 +86,10 @@ When you build a basic plugin it might look something like this:
 
 class Example extends Plugin  //Note the class name here "Example"
 {
-    function init()
+    function pluginLoaded()
     {
-        //Initialisation code goes here
+        // (optional) Code that runs when the project loads the plugin
+        // $this->project is available from here.
     }
 
     function sayHi()  //Note the function name here "sayHi"
@@ -143,11 +144,6 @@ Below you can see that the function is being fed an associative array (or map) o
 
 class Example extends Plugin
 {
-    function init()
-    {
-        //Initialisation code goes here
-    }
-
     function name($params)
     {
         return "My name is " . $params['firstname'].' '.$params['lastname'];
